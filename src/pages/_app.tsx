@@ -1,9 +1,10 @@
 import '@/styles/globals.scss';
-import React from 'react';
-import type { AppProps } from 'next/app';
-import { DefaultSeo } from 'next-seo';
-import { QueryClient, QueryClientProvider, useQuery } from '@tanstack/react-query';
+import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
+import { Analytics } from '@vercel/analytics/react';
 import { AnimatePresence } from 'framer-motion';
+import { DefaultSeo } from 'next-seo';
+import type { AppProps } from 'next/app';
+import React from 'react';
 
 export default function App({ Component, pageProps }: AppProps) {
 	const [queryClient] = React.useState(() => new QueryClient());
@@ -17,6 +18,7 @@ export default function App({ Component, pageProps }: AppProps) {
 			<AnimatePresence mode="wait" initial={true}>
 				<Component {...pageProps} />;
 			</AnimatePresence>
+			<Analytics />
 		</QueryClientProvider>
 	);
 }
