@@ -1,0 +1,9 @@
+# *
+User-agent: *
+Allow: /
+
+# Host
+Host: https://minecraftblocked.com
+
+# Sitemaps
+Sitemap: https://minecraftblocked.com/sitemap.xml
