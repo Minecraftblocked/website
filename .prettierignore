@@ -1,1 +1,7 @@
-src/**/__generated__/**
+.yarn
+
+.next
+
+dist
+
+node_modules
