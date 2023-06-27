@@ -1,0 +1,9 @@
+/* Import TailwindCSS */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Background */
+body {
+	background: hsl(140, 97%, 70%);
+}
