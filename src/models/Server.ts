@@ -1,7 +1,7 @@
-import { Server as ServerPrisma, Crawl as CrawlPrisma, Crawl } from '@prisma/client';
+import { Crawl as CrawlPrisma, Server as ServerPrisma } from '@prisma/client';
 
 interface Server extends ServerPrisma {
-	crawl?: CrawlPrisma;
+	crawl: CrawlPrisma | null;
 }
 
 export default Server;
