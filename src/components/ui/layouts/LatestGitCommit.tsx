@@ -1,19 +1,19 @@
-import React from 'react';
-import axios from 'axios';
 import { useQuery } from '@tanstack/react-query';
+import axios from 'axios';
 import Link from 'next/link';
-import { LuCog, LuGitBranch } from 'react-icons/lu';
+import React from 'react';
+import { LuGitBranch, LuRefreshCw } from 'react-icons/lu';
 
 const LatestGitCommit: React.FC = () => {
-	const { isLoading, isError, data } = useQuery(['repoData'], async () => {
-		const response = await axios.get('https://github.com/Minecraftblocked/website/commits/main');
-		const sha = `${response.data.sha}`.substring(0, 7);
+	const { isLoading, isError, data } = useQuery(['latest-commit'], async () => {
+		const response = await axios.get(`./api/latest-commit`);
+		const sha = `${response.data.data.sha}`.substring(0, 7);
 		return sha;
 	});
 	if (isLoading) {
 		return (
 			<div>
-				<LuCog className="text-text/60 animate-spin" />
+				<LuRefreshCw className="text-text/60 animate-spin" />
 			</div>
 		);
 	}
