@@ -46,57 +46,69 @@ const Server = ({ id }: Props) => {
 									{data && <Table server={data} />}
 								</motion.div>
 							</div>
+
 							<div className="col-span-12 sm:col-span-4">
 								{data?.ServerStatusChange && data.ServerStatusChange.length > 0 && (
-									<div className="mt-3">
-										<div className="uppercase text-sm font-black font-serif">History</div>
+									<motion.div
+										initial={{ x: 70, opacity: 0 }}
+										animate={{ x: 0, opacity: 1 }}
+										exit={{ x: 70, opacity: 0 }}
+										transition={{
+											type: 'spring',
+											stiffness: 160,
+											damping: 20,
+										}}
+									>
 										<div className="mt-3">
-											<ol className="border-l-2 text-text border-text/30">
-												{data.ServerStatusChange.map((_, index) => (
-													<li key={index} className="mt-2">
+											<div className="uppercase text-sm font-black font-serif">History</div>
+											<div className="mt-3">
+												<ol className="border-l-2 text-text border-text/30">
+													{data.ServerStatusChange.map((_, index) => (
+														<li key={index} className="mt-2">
+															<div className="ml-2 flex-start flex items-center">
+																<div className="-ml-[13px] mr-3 h-[9px] w-[9px] rounded-full bg-text/50"></div>
+																<Card className="grow">
+																	<div
+																		className={classNames(
+																			'p-2 border-b border-text/10 font-bold font-serif',
+																			_.newIsBlocked ? 'text-red-800' : 'text-teal-800',
+																		)}
+																	>
+																		{_.newIsBlocked ? 'Blocked' : 'Unblocked'}
+																	</div>
+																	<div className="p-3">
+																		<div className="flex gap-1">
+																			<div className="w-32 font-medium font-serif">Seen</div>
+																			<Timestamp timestamp={_.createdAt} />
+																		</div>
+																	</div>
+																</Card>
+															</div>
+														</li>
+													))}
+
+													<li className="mt-4">
 														<div className="ml-2 flex-start flex items-center">
 															<div className="-ml-[13px] mr-3 h-[9px] w-[9px] rounded-full bg-text/50"></div>
 															<Card className="grow">
-																<div
-																	className={classNames(
-																		'p-2 border-b border-text/10 font-bold font-serif',
-																		_.newIsBlocked ? 'text-red-800' : 'text-teal-800',
-																	)}
-																>
-																	{_.newIsBlocked ? 'Blocked' : 'Unblocked'}
-																</div>
+																<div className="p-2 border-b border-text/10 font-bold font-serif">Blocked</div>
 																<div className="p-3">
 																	<div className="flex gap-1">
 																		<div className="w-32 font-medium font-serif">Seen</div>
-																		<Timestamp timestamp={_.createdAt} />
+																		<Timestamp timestamp={data.createdAt} />
+																	</div>
+																	<div className="flex gap-1 mt-2">
+																		<div className="w-32 font-medium font-serif">Reason</div>
+																		{data.blockedReason ? data.blockedReason : 'unknown'}
 																	</div>
 																</div>
 															</Card>
 														</div>
 													</li>
-												))}
-
-												<li className="mt-4">
-													<div className="ml-2 flex-start flex items-center">
-														<div className="-ml-[13px] mr-3 h-[9px] w-[9px] rounded-full bg-text/50"></div>
-														<Card className="grow">
-															<div className="p-2 border-b border-text/10 font-bold font-serif">Blocked</div>
-															<div className="p-3">
-																<div className="flex gap-1">
-																	<div className="w-32 font-medium font-serif">Seen</div>
-																	<Timestamp timestamp={data.createdAt} />
-																</div>
-																<div className="flex gap-1 mt-2">
-																	<div className="w-32 font-medium font-serif">Reason</div>
-																	{data.blockedReason ? data.blockedReason : 'unknown'}
-																</div>
-															</div>
-														</Card>
-													</div>
-												</li>
-											</ol>
+												</ol>
+											</div>
 										</div>
-									</div>
+									</motion.div>
 								)}
 							</div>
 						</div>
