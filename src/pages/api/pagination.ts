@@ -34,6 +34,7 @@ export default async function handler(
 			},
 			include: {
 				crawl: true,
+				ServerStatusChange: false,
 			},
 			where: {
 				crawl: {

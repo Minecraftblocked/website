@@ -29,7 +29,11 @@ export default async function handler(
 		},
 		include: {
 			crawl: true,
-			ServerStatusChange: true,
+			ServerStatusChange: {
+				orderBy: {
+					createdAt: 'desc', // Order by 'createdAt' in descending order
+				},
+			},
 		},
 	});
 	if (!server) return sendError(res, 'Cannot find server by id');
