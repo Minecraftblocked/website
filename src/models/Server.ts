@@ -3,7 +3,7 @@ import ServerStatusChange from './ServerStatusChange';
 
 interface Server extends ServerPrisma {
 	crawl: CrawlPrisma | null;
-	ServerStatusChange: ServerStatusChange[] | null;
+	ServerStatusChange?: ServerStatusChange[] | null;
 }
 
 export default Server;
