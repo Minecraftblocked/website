@@ -1,13 +1,13 @@
 import Server from '@/models/Server';
 import { getTimeDifference } from '@/utils/dateUtils';
-import React, { useState, useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 
 interface Props {
 	server: Server;
 }
 
 const ServerTableSeenAt: React.FC<Props> = ({ server }) => {
-	const formattedOriginalBlock = new Date(server.createdAt).toLocaleString('en-GB', {
+	const formattedOriginalBlock = new Date(server.updatedAt).toLocaleString('en-GB', {
 		day: 'numeric',
 		month: 'long',
 		year: 'numeric',
@@ -16,15 +16,15 @@ const ServerTableSeenAt: React.FC<Props> = ({ server }) => {
 		second: '2-digit',
 	});
 
-	const [timeDifference, setTimeDifference] = useState(getTimeDifference(new Date(server.createdAt)));
+	const [timeDifference, setTimeDifference] = useState(getTimeDifference(new Date(server.updatedAt)));
 
 	useEffect(() => {
 		const intervalId = setInterval(() => {
-			setTimeDifference(getTimeDifference(new Date(server.createdAt)));
+			setTimeDifference(getTimeDifference(new Date(server.updatedAt)));
 		}, 1000);
 
 		return () => clearInterval(intervalId);
-	}, [server.createdAt]);
+	}, [server.updatedAt]);
 
 	return (
 		<div className="flex items-center gap-8">

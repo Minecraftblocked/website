@@ -31,7 +31,7 @@ const Server = ({ id }: Props) => {
 				) : (
 					<>
 						<Header title={data?.crawl?.serverHost || 'unknown'} />
-						<div className="grid grid-cols-12 mt-4 gap-4">
+						<div className="grid grid-cols-12 gap-4 mt-4">
 							<div className="col-span-12 sm:col-span-8">
 								<motion.div
 									initial={{ x: 50, opacity: 0 }}
@@ -60,12 +60,12 @@ const Server = ({ id }: Props) => {
 										}}
 									>
 										<div className="mt-3">
-											<div className="uppercase text-sm font-black font-serif">History</div>
+											<div className="font-serif text-sm font-black uppercase">History</div>
 											<div className="mt-3">
 												<ol className="border-l-2 text-text border-text/30">
 													{data.ServerStatusChange.map((_, index) => (
 														<li key={index} className="mt-2">
-															<div className="ml-2 flex-start flex items-center">
+															<div className="flex items-center ml-2 flex-start">
 																<div className="-ml-[13px] mr-3 h-[9px] w-[9px] rounded-full bg-text/50"></div>
 																<Card className="grow">
 																	<div
@@ -78,7 +78,7 @@ const Server = ({ id }: Props) => {
 																	</div>
 																	<div className="p-3">
 																		<div className="flex gap-1">
-																			<div className="w-32 font-medium font-serif">Seen</div>
+																			<div className="w-32 font-serif font-medium">Seen</div>
 																			<Timestamp timestamp={_.createdAt} />
 																		</div>
 																	</div>
@@ -88,17 +88,17 @@ const Server = ({ id }: Props) => {
 													))}
 
 													<li className="mt-4">
-														<div className="ml-2 flex-start flex items-center">
+														<div className="flex items-center ml-2 flex-start">
 															<div className="-ml-[13px] mr-3 h-[9px] w-[9px] rounded-full bg-text/50"></div>
 															<Card className="grow">
-																<div className="p-2 border-b border-text/10 font-bold font-serif">Blocked</div>
+																<div className="p-2 font-serif font-bold border-b border-text/10">Blocked</div>
 																<div className="p-3">
 																	<div className="flex gap-1">
-																		<div className="w-32 font-medium font-serif">Seen</div>
+																		<div className="w-32 font-serif font-medium">Seen</div>
 																		<Timestamp timestamp={data.createdAt} />
 																	</div>
 																	<div className="flex gap-1 mt-2">
-																		<div className="w-32 font-medium font-serif">Reason</div>
+																		<div className="w-32 font-serif font-medium">Reason</div>
 																		{data.blockedReason ? data.blockedReason : 'unknown'}
 																	</div>
 																</div>

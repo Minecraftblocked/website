@@ -17,7 +17,7 @@ export default async function handler(
 ) {
 	const recentServers = await prisma.server.findMany({
 		orderBy: {
-			createdAt: 'desc',
+			updatedAt: 'desc',
 		},
 		take: 6,
 		include: {

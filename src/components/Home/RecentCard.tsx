@@ -1,8 +1,8 @@
 import Server from '@/models/Server';
+import { timeSince } from '@/utils/dateUtils';
+import moment from 'moment';
 import Card from '../ui/Card';
 import RecentCardStatus from './RecentCardStatus';
-import moment from 'moment';
-import { timeSince } from '@/utils/dateUtils';
 
 interface Props {
 	server: Server;
@@ -12,7 +12,7 @@ interface Props {
 const RecentCard: React.FC<Props> = ({ server, delayTimer, timed }) => {
 	return (
 		<Card intent={'big'}>
-			{timed && <div className="mb-1 text-xs text-text/70">{timeSince(new Date(server.createdAt))} ago</div>}
+			{timed && <div className="mb-1 text-xs text-text/70">{timeSince(new Date(server.updatedAt))} ago</div>}
 			<div className="text-sm sm:text-base">
 				<div className={'h-full flex justify-between items-center'}>
 					{server.crawl && server.crawl.serverHost && server.crawl.serverPort ? (
