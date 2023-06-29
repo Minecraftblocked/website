@@ -38,5 +38,8 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse<
 		},
 	});
 
+	// Set Cache-Control header for 5 minutes
+	res.setHeader('Cache-Control', 'public, max-age=300');
+
 	return res.status(200).json({ servers: recentServers });
 }
