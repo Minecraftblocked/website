@@ -1,6 +1,6 @@
 import Server from '@/models/Server';
-import Card from '../ui/Card';
 import moment from 'moment';
+import Card from '../ui/Card';
 
 interface Props {
 	server: Server;
@@ -8,8 +8,12 @@ interface Props {
 const ServerCard: React.FC<Props> = ({ server }) => {
 	return (
 		<Card intent={'big'} className={'grow'}>
-			<div className="h-8 text-sm sm:text-base">
-				<div className={'h-full flex justify-between items-center'}>
+			<div className="h-12 text-sm sm:text-base">
+				<div className="flex items-center justify-between">
+					<div className="mb-1 text-xs text-text/70">{moment(server.updatedAt).format('DD/MM/YYYY')}</div>
+					<div className="text-xs">{server.isBlocked ? <div>Blocked</div> : <div>Unblocked</div>}</div>
+				</div>
+				<div className={'flex justify-between items-center'}>
 					{server.crawl && server.crawl.serverHost && server.crawl.serverPort ? (
 						<>
 							<div className="flex items-center gap-2">

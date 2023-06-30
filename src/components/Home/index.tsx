@@ -24,7 +24,6 @@ const Home = () => {
 					</div>
 					<div className="">
 						<div className="font-serif text-xl font-black sm:text-2xl text-text">Blocked servers</div>
-						<div className="font-serif text-lg">A few sample servers to test out our service</div>
 					</div>
 				</div>
 				{/* Recent servers */}

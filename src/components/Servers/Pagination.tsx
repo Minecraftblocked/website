@@ -1,8 +1,8 @@
 import Server from '@/models/Server';
-import { LoadingSkeleton } from '../Home/Recent';
-import ServerCard from './ServerCard';
 import Link from 'next/link';
 import Button from '../ui/Button';
+import Card from '../ui/Card';
+import ServerCard from './ServerCard';
 
 interface Props {
 	isLoading: boolean;
@@ -50,6 +50,28 @@ const Pagination: React.FC<Props> = ({ isLoading, servers, page, onPageChange })
 				</div>
 			</div>
 		</div>
+	);
+};
+
+export const LoadingSkeleton = () => {
+	return (
+		<Card intent="big">
+			<div className="flex justify-between h-12 animate-pulse">
+				<div className="flex gap-2">
+					<div className="px-2">
+						<div className="w-6 h-4 mb-4 rounded-full sm:w-8 bg-text/20"></div>
+					</div>
+					<div className="">
+						<div className="w-32 h-3 mb-4 rounded-full bg-text/20 sm:w-36"></div>
+					</div>
+				</div>
+				<div>
+					<div className="">
+						<div className="w-32 h-6 mb-4 rounded-full sm:w-48 bg-text/20"></div>
+					</div>
+				</div>
+			</div>
+		</Card>
 	);
 };
 
