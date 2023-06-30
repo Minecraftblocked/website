@@ -17,7 +17,7 @@ export default async function handler(
 ) {
 	const recentServers = await prisma.server.findMany({
 		orderBy: {
-			createdAt: 'desc',
+			updatedAt: 'desc',
 		},
 		take: 6,
 		include: {
@@ -28,6 +28,9 @@ export default async function handler(
 			isBlocked: false,
 		},
 	});
+
+	// Set Cache-Control header for 5 minutes
+	res.setHeader('Cache-Control', 'public, max-age=300');
 
 	return res.status(200).json({ servers: recentServers });
 }

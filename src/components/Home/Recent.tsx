@@ -1,7 +1,7 @@
-import Card from '../ui/Card';
-import RecentCard from './RecentCard';
 import useRecentServers from '@/hooks/useRecentServers';
 import Link from 'next/link';
+import Card from '../ui/Card';
+import RecentCard from './RecentCard';
 
 const Recent: React.FC = () => {
 	const { isLoading, data } = useRecentServers();
@@ -34,7 +34,7 @@ const Recent: React.FC = () => {
 export const LoadingSkeleton = () => {
 	return (
 		<Card intent="big">
-			<div className="flex justify-between h-7 animate-pulse">
+			<div className="flex justify-between h-10 animate-pulse">
 				<div className="flex gap-2">
 					<div className="px-2">
 						<div className="w-6 h-4 mb-4 rounded-full sm:w-8 bg-text/20"></div>

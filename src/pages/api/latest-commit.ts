@@ -13,6 +13,7 @@ import type { NextApiRequest, NextApiResponse } from 'next';
 const cors = Cors({
 	methods: ['GET', 'HEAD'],
 });
+
 const runCors = (req: NextApiRequest, res: NextApiResponse) =>
 	new Promise<void>((resolve, reject) => {
 		cors(req, res, (result) => {
