@@ -1,38 +1,25 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# Minecraftblocked.com
 
-## Getting Started
+Minecraftblocked is an ongoing project dedicated to providing transparency in the Minecraft gaming community. The website is built using Next.js and Typescript, and serves as the front-end to present data in the database. It offers Minecraft players insights into servers that have been flagged or blocked by Mojang.
 
-First, run the development server:
+## Features
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-```
+- Server List: Displays a comprehensive list of Minecraft servers.
+- Server Status: Provides the current status of each server, including whether it is blocked by Mojang.
+- Search and Filter: Allows users to search for specific servers and filter results based on different criteria.
+- Responsive Design: The website is designed to be responsive and works across various devices.
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## Tech Stack
 
-You can start editing the page by modifying `pages/index.tsx`. The page auto-updates as you edit the file.
+- Next.js: We chose Next.js for its powerful features including server-side rendering which helps in faster page loads and an enhanced user experience.
+- TypeScript: TypeScript is used to ensure type safety, resulting in more reliable and maintainable code.
+- Prisma: For our database layer, we are using Prisma with a MySQL database to manage records of Minecraft servers. This allows for strong typing and high performance.
+- TailwindCSS: We are using for component-scoped styles.
 
-[API routes](https://nextjs.org/docs/api-routes/introduction) can be accessed on [http://localhost:3000/api/hello](http://localhost:3000/api/hello). This endpoint can be edited in `pages/api/hello.ts`.
+## Feedback and support
 
-The `pages/api` directory is mapped to `/api/*`. Files in this directory are treated as [API routes](https://nextjs.org/docs/api-routes/introduction) instead of React pages.
+Please open an issue on GitHub or contact us through the website if you have feedback or need support.
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+## License
 
-## Learn More
-
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+Minecraftblocked is released under the MIT License.
