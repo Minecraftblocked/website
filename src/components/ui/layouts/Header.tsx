@@ -21,7 +21,7 @@ const Header: React.FC = () => {
 			path: 'https://github.com/minecraftblocked',
 			icon: <FiGithub />,
 		},
-		{ name: 'Twitter', path: 'https://twitter.com/jamesdotbuzz', icon: <FiTwitter /> },
+		{ name: 'Twitter', path: 'https://twitter.com/mcblockedtweet', icon: <FiTwitter /> },
 	];
 
 	return (

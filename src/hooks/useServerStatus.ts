@@ -7,7 +7,7 @@ function useServerStatus(serverHost: string, serverPort: number, delayTimer: num
 		() => fetchServerStatus(serverHost, serverPort, delayTimer),
 		{
 			cacheTime: 5 * 60 * 1000,
-			retry: 3,
+			retry: 1,
 			retryDelay: (attemptIndex) => Math.min(attemptIndex * 1000, 3000),
 		},
 	);
